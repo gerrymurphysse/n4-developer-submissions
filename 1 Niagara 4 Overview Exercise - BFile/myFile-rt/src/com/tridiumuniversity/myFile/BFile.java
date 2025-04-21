@@ -209,11 +209,11 @@ public class BFile extends BComponent{
 //endregion /*+ ------------ END BAJA AUTO GENERATED CODE -------------- +*/
 
 
-  // When the block is dropped onto the sheet
-
+  // When the block is "Touched" we update the Modified time"
 public void doTouch(){
   setModifiedDate(BAbsTime.now());
 }
+  // when the Print action is triggered we print file details to the console (std out)
 public void doPrint(){
   System.out.println("File Name: " +getFileName());
   System.out.println("File Path: " +getPath());
@@ -221,6 +221,8 @@ public void doPrint(){
   System.out.println("File Created: " +getCreatedDate());
   System.out.println("File Modified: " +getModifiedDate());
 }
+  //if the filename or path are changed we generate a new created & modified time but if only the size
+  // changes we update just the modified time.
   public void changed(Property property, Context context) {
     if (property == fileName || property == path){
       setCreatedDate(BAbsTime.now());
