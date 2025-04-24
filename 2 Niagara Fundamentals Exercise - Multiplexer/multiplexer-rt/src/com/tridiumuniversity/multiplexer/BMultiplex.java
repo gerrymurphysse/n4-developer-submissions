@@ -5,6 +5,8 @@ import javax.baja.nre.annotations.NiagaraProperty;
 import javax.baja.nre.annotations.NiagaraType;
 import javax.baja.sys.*;
 
+
+
 @NiagaraType
 @NiagaraProperty(
         name = "out",
@@ -20,13 +22,17 @@ import javax.baja.sys.*;
         name = "addS",
         flags = Flags.SUMMARY
 )
+@NiagaraAction(
+        name = "deleteSlots",
+        flags = Flags.SUMMARY
+)
 public class BMultiplex extends BComponent {
 
 
 //region /*+ ------------ BEGIN BAJA AUTO GENERATED CODE ------------ +*/
 //@formatter:off
-/*@ $com.tridiumuniversity.multiplexer.BMultiplex(1012346229)1.0$ @*/
-/* Generated Thu Apr 24 12:42:25 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
+/*@ $com.tridiumuniversity.multiplexer.BMultiplex(664578286)1.0$ @*/
+/* Generated Thu Apr 24 14:35:12 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
 
   //region Property "out"
 
@@ -83,6 +89,22 @@ public class BMultiplex extends BComponent {
 
   //endregion Action "addS"
 
+  //region Action "deleteSlots"
+
+  /**
+   * Slot for the {@code deleteSlots} action.
+   * @see #deleteSlots()
+   */
+  public static final Action deleteSlots = newAction(Flags.SUMMARY, null);
+
+  /**
+   * Invoke the {@code deleteSlots} action.
+   * @see #deleteSlots
+   */
+  public void deleteSlots() { invoke(deleteSlots, null, null); }
+
+  //endregion Action "deleteSlots"
+
   //region Type
 
   @Override
@@ -93,46 +115,82 @@ public class BMultiplex extends BComponent {
 
 //@formatter:on
 //endregion /*+ ------------ END BAJA AUTO GENERATED CODE -------------- +*/
-@Override
-public void changed(Property property, Context cx) {
 
-    int numberOfInputs = inputCount();
-    int totalIn = (int) Math.pow(2,numberOfInputs);
 
-    int selectedInput = 0;
-    // select output based on number
-    for (int i = 0; i < totalIn; i++) {
-        if (getProperty("s" + i) != null) {
-            boolean aBoolean = getBoolean(getProperty("s" + i));
-            if (aBoolean) {
-                selectedInput = selectedInput + ((int) Math.pow(2, i));
+    @Override
+    public void changed(Property property, Context cx) {
+
+        int totalIn = (int) Math.pow(2, inCount());
+
+        int in = 0;
+
+        for (int i = 0; i < totalIn; i++) {
+            if (getProperty("s" + i) != null) {
+                boolean b = getBoolean(getProperty("s" + i));
+                if (b) {
+                    in = in + ((int) Math.pow(2, i));
+                }
             }
+        }
+
+        System.out.println("Input Value: " + in);
+        if (getProperty("in" + in) != null) {
+            setOut(getBoolean(getProperty("in" + in)));
         }
     }
 
-    System.out.println("Input Value: " + selectedInput);
-    if (getProperty("in" + selectedInput) != null) {
-        setOut(getBoolean(getProperty("in" + selectedInput)));
-    }
-}
 
-    private int inputCount() {
+    public void doAddIn() {
+
+
+        if (getProperty("in0") != null) {
+            add("in"+inCount(), BBoolean.make(false), 8);
+        } else {
+            add("in0", BBoolean.make(false), 8);
+        }
+    }
+
+    public void doAddS() {
+        if (getProperty("s0") != null) {
+            add("s"+sCount(), BBoolean.make(false), 8);
+        } else {
+            add("s0", BBoolean.make(false), 8);
+        }
+    }
+
+    public void doDeleteSlots() {
+
         Property[] propertiesArray = getPropertiesArray();
-        int inputcount = 0;
+
         for (int i = 0; i < propertiesArray.length; i++) {
-            if (propertiesArray[i].getName().startsWith("in")) {
-                inputcount++;
+            if (propertiesArray[i].getName().startsWith("in") || propertiesArray[i].getName().startsWith("s")) {
+                remove(propertiesArray[i].getName());
             }
         }
-        return inputcount;
     }
 
-    public void doAddIn(){
-        add("in?",BBoolean.make(false),8);
-    }
+    public int inCount() {
+        Property[] props = getPropertiesArray();
+        int inCount = 0;
+        for (int i = 0; i < props.length; i++) {
+            if (props[i].getName().startsWith("in")) {
 
-    public void doAddS(){
-        add("s?",BBoolean.make(false),8);
-    }
+                inCount++;
 
+            }
+        }
+        return inCount;
+    }
+    public int sCount() {
+        Property[] props = getPropertiesArray();
+        int sCount = 0;
+        for (int i = 0; i < props.length; i++) {
+            if (props[i].getName().startsWith("s")) {
+
+                sCount++;
+
+            }
+        }
+        return sCount;
+    }
 }
