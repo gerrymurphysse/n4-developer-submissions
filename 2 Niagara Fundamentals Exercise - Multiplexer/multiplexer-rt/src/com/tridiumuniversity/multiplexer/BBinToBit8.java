@@ -84,7 +84,7 @@ public class BBinToBit8 extends BComponent {
 //region /*+ ------------ BEGIN BAJA AUTO GENERATED CODE ------------ +*/
 //@formatter:off
 /*@ $com.tridiumuniversity.multiplexer.BBinToBit8(761016257)1.0$ @*/
-/* Generated Mon Apr 21 17:07:16 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
+/* Generated Tue Apr 22 11:02:38 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
 
   //region Property "out"
 

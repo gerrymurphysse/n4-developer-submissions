@@ -51,8 +51,8 @@ import javax.baja.sys.*;
 public class BBinToBit4 extends BComponent {
 //region /*+ ------------ BEGIN BAJA AUTO GENERATED CODE ------------ +*/
 //@formatter:off
-/*@ $com.tridiumuniversity.multiplexer.BBinToBit4(20416816)1.0$ @*/
-/* Generated Mon Apr 21 17:07:16 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
+/*@ $com.tridiumuniversity.multiplexer.BBinToBit4(3259763324)1.0$ @*/
+/* Generated Tue Apr 22 11:02:38 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
 
   //region Property "out"
 
@@ -214,29 +214,6 @@ public class BBinToBit4 extends BComponent {
   public void setS1(boolean v) { setBoolean(s1, v, null); }
 
   //endregion Property "s1"
-
-  //region Property "decVal"
-
-  /**
-   * Slot for the {@code decVal} property.
-   * @see #getDecVal
-   * @see #setDecVal
-   */
-  public static final Property decVal = newProperty(Flags.SUMMARY, 0, null);
-
-  /**
-   * Get the {@code decVal} property.
-   * @see #decVal
-   */
-  public int getDecVal() { return getInt(decVal); }
-
-  /**
-   * Set the {@code decVal} property.
-   * @see #decVal
-   */
-  public void setDecVal(int v) { setInt(decVal, v, null); }
-
-  //endregion Property "decVal"
 
   //region Type
 

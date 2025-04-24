@@ -3,5 +3,6 @@
 <p m="b=baja" t="b:Folder">
 <p m="mux=multiplexer" t="mux:BinToBit4" n="BinaryMultiplexer4" />
 <p m="mux=multiplexer" t="mux:BinToBit8" n="BinaryMultiplexer8" />
+<p m="mux=multiplexer" t="mux:Multiplex" n="Multiplexer" />
 </p>
 </bajaObjectGraph>

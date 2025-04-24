@@ -47,8 +47,8 @@ import javax.baja.sys.*;
 public class BFile extends BComponent{
 //region /*+ ------------ BEGIN BAJA AUTO GENERATED CODE ------------ +*/
 //@formatter:off
-/*@ $com.tridiumuniversity.myFile.BFile(197895296)1.0$ @*/
-/* Generated Mon Apr 21 14:14:07 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
+/*@ $com.tridiumuniversity.myFile.BFile(2069866782)1.0$ @*/
+/* Generated Tue Apr 22 11:02:38 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
 
   //region Property "fileName"
 
@@ -126,7 +126,7 @@ public class BFile extends BComponent{
    * @see #getCreatedDate
    * @see #setCreatedDate
    */
-  public static final Property createdDate = newProperty(0, BAbsTime.DEFAULT, null);
+  public static final Property createdDate = newProperty(Flags.READONLY, BAbsTime.DEFAULT, null);
 
   /**
    * Get the {@code createdDate} property.
@@ -149,7 +149,7 @@ public class BFile extends BComponent{
    * @see #getModifiedDate
    * @see #setModifiedDate
    */
-  public static final Property modifiedDate = newProperty(0, BAbsTime.DEFAULT, null);
+  public static final Property modifiedDate = newProperty(Flags.READONLY, BAbsTime.DEFAULT, null);
 
   /**
    * Get the {@code modifiedDate} property.
