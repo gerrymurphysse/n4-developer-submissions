@@ -45,21 +45,28 @@ public class BUnhide extends BComponent {
 
     public void doUnhide() {
         BComponent parent = (BComponent) this.getParent();
-        System.out.println("Link All in10 slots back to fallback slots on all components below " + parent.getDisplayName(null));
-        BComponent[] children = parent.getChildComponents();
+
+        unhideRecurse(parent);
+
+    }
+    public void unhideRecurse(BComponent item){
+        BComponent[] children = item.getChildComponents();
         for (BComponent child : children) {
-            if (child.getType().is(BComponent.TYPE)) {
+            // I have commented out the below IF statement to allow the loop to look at slots that are not BComponents
+            //if (child.getType().is(BComponent.TYPE)) {
 
-                String slots = child.getSlotPath().toString();
-               
-                String space = child.getComponentSpace().toString();
-
-
-                String objSpace = space + ":|" + slots;
-                System.out.println(objSpace);
-
+            Property[] slots = child.getPropertiesArray();
+            for (Slot slot : slots) {
+                child.checkSetFlags(slot,Flags.HIDDEN,null);
+                System.out.println("Unhide "+slot);
+                child.setFlags(slot, Flags.SUMMARY);
             }
-        }
+        unhideRecurse(child);
 
+
+
+
+            // }
+        }
     }
 }
