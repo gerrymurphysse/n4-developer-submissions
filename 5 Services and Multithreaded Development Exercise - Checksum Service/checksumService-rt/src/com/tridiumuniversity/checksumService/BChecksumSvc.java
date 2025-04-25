@@ -73,7 +73,7 @@ public class BChecksumSvc extends BAbstractService {
 //@formatter:on
 //endregion /*+ ------------ END BAJA AUTO GENERATED CODE -------------- +*/
 
-    Logger log = Logger.getLogger("ChecksumGenerator");
+    Logger log = Logger.getLogger("Checksum Generator");
 
     @Override
     public Type[] getServiceTypes() {
