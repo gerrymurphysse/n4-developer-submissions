@@ -33,7 +33,7 @@ public class BTrafficLight extends BComponent
 //region /*+ ------------ BEGIN BAJA AUTO GENERATED CODE ------------ +*/
 //@formatter:off
 /*@ $com.tridiumuniversity.trafficLightWidget.BTrafficLight(942206876)1.0$ @*/
-/* Generated Tue Oct 31 13:27:24 EDT 2023 by Slot-o-Matic (c) Tridium, Inc. 2012-2023 */
+/* Generated Tue Apr 22 11:02:38 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
 
   //region Property "minimumYellowTime"
 

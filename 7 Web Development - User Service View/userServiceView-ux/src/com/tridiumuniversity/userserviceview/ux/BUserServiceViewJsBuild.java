@@ -14,7 +14,7 @@ public final class BUserServiceViewJsBuild extends BJsBuild
 //region /*+ ------------ BEGIN BAJA AUTO GENERATED CODE ------------ +*/
 //@formatter:off
 /*@ $com.tridiumuniversity.userserviceview.ux.BUserServiceViewJsBuild(2747097003)1.0$ @*/
-/* Generated Tue Oct 31 16:13:47 EDT 2023 by Slot-o-Matic (c) Tridium, Inc. 2012-2023 */
+/* Generated Tue Apr 22 11:02:44 BST 2025 by Slot-o-Matic (c) Tridium, Inc. 2012-2025 */
 
   public static final BUserServiceViewJsBuild INSTANCE = new BUserServiceViewJsBuild();
 
