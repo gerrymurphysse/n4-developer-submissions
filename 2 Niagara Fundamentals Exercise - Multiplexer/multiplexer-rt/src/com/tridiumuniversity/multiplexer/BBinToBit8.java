@@ -373,8 +373,8 @@ public class BBinToBit8 extends BComponent {
 //@formatter:on
 //endregion /*+ ------------ END BAJA AUTO GENERATED CODE -------------- +*/
 
-    private int EnumVal=0;
 
+    @Override
     public void changed(Property property, Context context) {
         multiplex();
 
@@ -383,34 +383,29 @@ public class BBinToBit8 extends BComponent {
         if (!getS0() && !getS1() && !getS2()){
             setOut( getIn0() );
 
-        }
-        if (getS0() && !getS1() && !getS2()){
+        }else if (getS0() && !getS1() && !getS2()){
             setOut( getIn1() );
 
-        }
-        if (!getS0() && getS1() && !getS2()){
+        }else if (!getS0() && getS1() && !getS2()){
             setOut( getIn2() );
 
-        }
-        if (getS0() && getS1() && !getS2()){
+        }else if (getS0() && getS1() && !getS2()){
             setOut( getIn3() );
 
-        }
-        if (!getS0() && !getS1() && getS2()){
+        }else if (!getS0() && !getS1() && getS2()){
             setOut( getIn4() );
 
-        }
-        if (getS0() && !getS1() && getS2()){
+        }else if (getS0() && !getS1() && getS2()){
             setOut( getIn5() );
 
-        }
-        if (!getS0() && getS1() && getS2()){
+        }else if (!getS0() && getS1() && getS2()){
             setOut( getIn6() );
 
-        }
-        if (getS0() && getS1() && getS2()){
+        }else if (getS0() && getS1() && getS2()){
             setOut( getIn7() );
 
+        }else {
+            setOut(false);
         }
     }
 

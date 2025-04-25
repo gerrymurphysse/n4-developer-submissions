@@ -225,7 +225,7 @@ public class BBinToBit4 extends BComponent {
 
 //@formatter:on
 //endregion /*+ ------------ END BAJA AUTO GENERATED CODE -------------- +*/
-
+    @Override
     public void changed(Property property, Context context) {
         multiplex();
 }
@@ -233,18 +233,17 @@ public class BBinToBit4 extends BComponent {
         if (!getS0() && !getS1()){
             setOut( getIn0() );
 
-        }
-        if (getS0() && !getS1()){
+        }else if (getS0() && !getS1()){
             setOut( getIn1() );
 
-        }
-        if (!getS0() && getS1()){
+        } else if  (!getS0() && getS1()){
             setOut( getIn2() );
 
-        }
-        if (getS0() && getS1()){
+        }else if (getS0() && getS1()){
             setOut( getIn3() );
 
+        }else {
+            setOut(false);
         }
     }
 }
