@@ -8,6 +8,7 @@ import javax.baja.nre.annotations.NiagaraType;
 import javax.baja.query.BQueryResult;
 import javax.baja.sys.*;
 import javax.baja.user.BUser;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 @NiagaraType
@@ -65,7 +66,7 @@ public class BDriverFind extends BComponent {
 
 //@formatter:on
 //endregion /*+ ------------ END BAJA AUTO GENERATED CODE -------------- +*/
-
+    Logger log = Logger.getLogger("DriverLog");
     public void doFindNeql() {
         String Query = "station:|slot:|neql:n:network";
         BOrd ord = BOrd.make(Query);
@@ -77,6 +78,7 @@ public class BDriverFind extends BComponent {
             BComponent point = cursor.get();
             String path = point.getSlotPath().toString();
             if (!path.toString().contains("Drivers")) {
+                log.info(point + " at " + path + " outside Drivers Container");
                 System.out.println(point + " at " + path + " outside Drivers Container");
             }
 
@@ -93,6 +95,7 @@ public class BDriverFind extends BComponent {
             BComponent point = cursor.get();
             String path = point.getSlotPath().toString();
             if (!path.toString().contains("Drivers")) {
+                log.info(point + " at " + path + " outside Drivers Container");
                 System.out.println(point + " at " + path + " outside Drivers Container");
             }
 
