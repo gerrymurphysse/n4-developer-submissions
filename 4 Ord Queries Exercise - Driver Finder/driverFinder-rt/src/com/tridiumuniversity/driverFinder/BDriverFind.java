@@ -78,8 +78,8 @@ public class BDriverFind extends BComponent {
             BComponent point = cursor.get();
             String path = point.getSlotPath().toString();
             if (!path.toString().contains("Drivers")) {
-                log.info(point + " at " + path + " outside Drivers Container");
-                System.out.println(point + " at " + path + " outside Drivers Container");
+                log.info(point + " at " + path + " outside Drivers Container.");
+                System.out.println(point + " at " + path + " outside Drivers Container.");
             }
 
         }
@@ -95,8 +95,8 @@ public class BDriverFind extends BComponent {
             BComponent point = cursor.get();
             String path = point.getSlotPath().toString();
             if (!path.toString().contains("Drivers")) {
-                log.info(point + " at " + path + " outside Drivers Container");
-                System.out.println(point + " at " + path + " outside Drivers Container");
+                log.info(point + " at " + path + " outside Drivers Container.");
+                System.out.println(point + " at " + path + " outside Drivers Container.");
             }
 
         }
