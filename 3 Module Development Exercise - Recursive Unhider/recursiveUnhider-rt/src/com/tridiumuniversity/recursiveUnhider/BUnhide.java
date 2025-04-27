@@ -43,25 +43,23 @@ public class BUnhide extends BComponent {
 //@formatter:on
 //endregion /*+ ------------ END BAJA AUTO GENERATED CODE -------------- +*/
 
-    public void doUnhide() {
+    public void doUnhide(Context cx) {
         BComponent parent = (BComponent) this.getParent();
 
-        unhideRecurse(parent);
+        unhideRecurse(parent,cx);
 
     }
-    public void unhideRecurse(BComponent item){
+    public void unhideRecurse(BComponent item,Context cx){
         BComponent[] children = item.getChildComponents();
         for (BComponent child : children) {
-            // I have commented out the below IF statement to allow the loop to look at slots that are not BComponents
-            //if (child.getType().is(BComponent.TYPE)) {
 
             Property[] slots = child.getPropertiesArray();
             for (Slot slot : slots) {
-                child.checkSetFlags(slot,Flags.HIDDEN,null);
-                System.out.println("Unhide "+slot);
-                child.setFlags(slot, Flags.SUMMARY);
+                if (Flags.isHidden(child, slot)) {
+                    Flags.remove(child, slot, cx, Flags.HIDDEN);
+                }
             }
-        unhideRecurse(child);
+        unhideRecurse(child,cx);
 
 
 

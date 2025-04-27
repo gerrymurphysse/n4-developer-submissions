@@ -4,6 +4,8 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 public class Utils {
 
@@ -24,10 +26,27 @@ public class Utils {
         return sb.toString();
     }
 
-    public static byte[] sha256(byte[] bytes) throws Exception {
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        digest.update(bytes);
-        return digest.digest();
+    public static String generateSHA256Hash(String input) {
+        try {
+            // Create a MessageDigest instance for SHA-256
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+
+            // Perform the hash computation
+            byte[] encodedhash = digest.digest(input.getBytes());
+
+            // Convert byte array into a hexadecimal string
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : encodedhash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -37,4 +56,7 @@ public class Utils {
         return mac.doFinal(msg.getBytes(StandardCharsets.UTF_8));
     }
 
+    public static String b64(String string){
+        return Base64.getEncoder().encodeToString(string.getBytes());
+    }
 }
